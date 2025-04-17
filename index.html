@@ -117,28 +117,26 @@
 
 
 <script>
-  function OpenTwitterLink(text) {
+  function OpenTwitterLink(url) {
     const ua = navigator.userAgent;
     const isMobile = /iPhone|Android.+Mobile/.test(ua);
 
-    const encoded = encodeURIComponent(text);
-    const twitterAppUrl = "twitter://post?message=" + encoded;
-    const twitterWebUrl = "https://twitter.com/intent/tweet?text=" + encoded;
-
     if (isMobile) {
-      // スマホ → アプリ起動を最優先
-      location.href = twitterAppUrl;
+      // アプリ起動を試みる
+      const appUrl = "twitter://post?message=かがみねちゃれんじであそんだよ！%0A" + encodeURIComponent(url);
+      window.location = appUrl;
 
-      // 念のため失敗時にWeb投稿へフォールバック
+      // 保険として0.5秒後にブラウザ投稿へ
       setTimeout(() => {
-        window.open(twitterWebUrl, "_blank");
-      }, 800);
+        window.open(url, "_blank");
+      }, 500);
     } else {
-      // PCは通常通りWeb画面
-      window.open(twitterWebUrl, "_blank");
+      // PCは普通に開く
+      window.open(url, "_blank");
     }
   }
 </script>
+
 
 
 
