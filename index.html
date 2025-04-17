@@ -117,27 +117,25 @@
 
 
 <script>
-  function OpenTwitterLink(url) {
+  function OpenTwitterLink(intentUrl) {
     const ua = navigator.userAgent;
     const isMobile = /iPhone|Android.+Mobile/.test(ua);
 
-    const messageText = "かがみねちゃれんじであそんだよ！\n" + decodeURIComponent(url);
-
     if (isMobile) {
-      // Twitterアプリ用の投稿文を直接渡す（URLじゃなくテキスト！）
-      const appUrl = "twitter://post?message=" + encodeURIComponent(messageText);
-      window.location = appUrl;
+      // iOSやAndroidのTwitterアプリへ渡す（intentを開かせる）
+      window.location = intentUrl;
 
-      // 保険：0.5秒後にWeb投稿画面
+      // 念のため保険で再度開かせる（ブロック回避）
       setTimeout(() => {
-        window.open(url, "_blank");
+        window.open(intentUrl, "_blank");
       }, 500);
     } else {
-      // PCはそのまま intent URL を開く
-      window.open(url, "_blank");
+      // PCやタブレットなど通常ブラウザはそのまま開く
+      window.open(intentUrl, "_blank");
     }
   }
 </script>
+
 
 
 
