@@ -121,21 +121,24 @@
     const ua = navigator.userAgent;
     const isMobile = /iPhone|Android.+Mobile/.test(ua);
 
+    const messageText = "かがみねちゃれんじであそんだよ！\n" + decodeURIComponent(url);
+
     if (isMobile) {
-      // アプリ起動を試みる
-      const appUrl = "twitter://post?message=かがみねちゃれんじであそんだよ！%0A" + encodeURIComponent(url);
+      // Twitterアプリ用の投稿文を直接渡す（URLじゃなくテキスト！）
+      const appUrl = "twitter://post?message=" + encodeURIComponent(messageText);
       window.location = appUrl;
 
-      // 保険として0.5秒後にブラウザ投稿へ
+      // 保険：0.5秒後にWeb投稿画面
       setTimeout(() => {
         window.open(url, "_blank");
       }, 500);
     } else {
-      // PCは普通に開く
+      // PCはそのまま intent URL を開く
       window.open(url, "_blank");
     }
   }
 </script>
+
 
 
 
