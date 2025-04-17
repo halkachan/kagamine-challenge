@@ -116,29 +116,6 @@
     </script>
 
 
-<script>
-  function OpenTwitterLink(url) {
-    const ua = navigator.userAgent;
-    const isMobile = /iPhone|Android.+Mobile/.test(ua);
-
-    if (isMobile) {
-      // アプリ起動を試みる
-      const appUrl = "twitter://post?message=かがみねちゃれんじであそんだよ！%0A" + encodeURIComponent(url);
-      window.location = appUrl;
-
-      // 保険として0.5秒後にブラウザ投稿へ
-      setTimeout(() => {
-        window.open(url, "_blank");
-      }, 500);
-    } else {
-      // PCは普通に開く
-      window.open(url, "_blank");
-    }
-  }
-</script>
-
-
-
 
 
   </body>
