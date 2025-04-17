@@ -115,6 +115,26 @@
       document.body.appendChild(script);
     </script>
 
+<script>
+  function openTwitter(url) {
+    const ua = navigator.userAgent;
+    const isMobile = /iPhone|Android.+Mobile/.test(ua);
+
+    if (isMobile) {
+      // アプリ起動を試みる（intent形式を維持）
+      const appUrl = "twitter://post?message=" + encodeURIComponent(url);
+      window.location = appUrl;
+
+      // 保険：0.5秒後にWeb投稿画面を開く
+      setTimeout(() => {
+        window.open(url, "_blank");
+      }, 500);
+    } else {
+      // PC：そのままWebで投稿
+      window.open(url, "_blank");
+    }
+  }
+</script>
 
 
 
