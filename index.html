@@ -117,26 +117,28 @@
 
 
 <script>
-  function OpenTwitterLink(intentUrl) {
+  function OpenTwitterLink(text) {
     const ua = navigator.userAgent;
     const isMobile = /iPhone|Android.+Mobile/.test(ua);
 
-    if (isMobile) {
-      // iOSやAndroidのTwitterアプリへ渡す（intentを開かせる）
-      window.location = intentUrl;
+    const encoded = encodeURIComponent(text);
+    const twitterAppUrl = "twitter://post?message=" + encoded;
+    const twitterWebUrl = "https://twitter.com/intent/tweet?text=" + encoded;
 
-      // 念のため保険で再度開かせる（ブロック回避）
+    if (isMobile) {
+      // スマホ → アプリ起動を最優先
+      location.href = twitterAppUrl;
+
+      // 念のため失敗時にWeb投稿へフォールバック
       setTimeout(() => {
-        window.open(intentUrl, "_blank");
-      }, 500);
+        window.open(twitterWebUrl, "_blank");
+      }, 800);
     } else {
-      // PCやタブレットなど通常ブラウザはそのまま開く
-      window.open(intentUrl, "_blank");
+      // PCは通常通りWeb画面
+      window.open(twitterWebUrl, "_blank");
     }
   }
 </script>
-
-
 
 
 
