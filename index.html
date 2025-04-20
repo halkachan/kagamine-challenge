@@ -14,26 +14,24 @@
       justify-content: center;
     }
 
-    #unity-progress-bar-empty {
-      position: relative;
-      width: 160px;
-      height: 18px;
-      background-color: #eee;
-      border-radius: 10px;
-      margin: 10px auto;
-      overflow: hidden;
-  　　box-sizing: border-box;
-    }
+  #unity-progress-bar-empty {
+    width: 160px;
+    height: 18px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 10px auto;
+    position: relative;
+    box-sizing: border-box;
+  }
 
-    #unity-progress-bar-full {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 0%;
-      background-color: #f9b233;
-  　　border-radius: 0;
-    }
+  #unity-progress-bar-full {
+    height: 100%;
+    width: 0%;
+    background-color: #f9b233;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+  }
   </style>
   </head>
   <body>
