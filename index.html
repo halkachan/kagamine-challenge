@@ -70,7 +70,7 @@
   text-align: center;
 }
 
-  @media screen and (orientation: landscape) {
+  @media screen and (orientation: landscape) and (max-width: 812px) {
     body::before {
       content: "スマホは縦画面でプレイしてね！";
       position: fixed;
@@ -85,6 +85,7 @@
       text-align: center;
       border-radius: 8px;
     }
+
     #unity-container {
       display: none !important;
     }
