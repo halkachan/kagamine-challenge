@@ -96,7 +96,7 @@
   <body>
 <body style="background-color: #ffe39e;">
   <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=760 height=600></canvas>
+      <canvas id="unity-canvas" width=1000 height=1000></canvas>
 <div id="unity-loading-bar">
   <div id="unity-loading-content"> <!-- ⭐ ラッパー追加！ -->
     <div id="unity-logo"></div>
@@ -185,8 +185,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "1000px";
+        canvas.style.height = "1000px";
       }
 
       loadingBar.style.display = "block";
@@ -194,6 +194,7 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+config.matchWebGLToCanvasSize = false;
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
