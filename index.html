@@ -7,6 +7,16 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
+
+canvas {
+  width: 800px !important;
+  height: 800px !important;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: block;
+  margin: 0 auto;
+}
+
       /* デフォルトのUnityバーを非表示にする */
       #unity-progress-bar-empty,
       #unity-progress-bar-full {
@@ -96,7 +106,7 @@
   <body>
 <body style="background-color: #ffe39e;">
   <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=900 height=900></canvas>
+      <canvas id="unity-canvas" width=800 height=800></canvas>
 <div id="unity-loading-bar">
   <div id="unity-loading-content"> <!-- ⭐ ラッパー追加！ -->
     <div id="unity-logo"></div>
@@ -184,8 +194,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "900px";
-        canvas.style.height = "900px";
+        canvas.style.width = "800px";
+        canvas.style.height = "800px";
       }
 
       loadingBar.style.display = "block";
