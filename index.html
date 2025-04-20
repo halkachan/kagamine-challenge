@@ -6,10 +6,28 @@
     <title>Unity WebGL Player | かがみねちゃれんじ</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+  <style>
+    #custom-loading {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    #custom-loading img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <canvas id="unity-canvas" width=760 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
 
