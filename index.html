@@ -61,15 +61,9 @@ canvas {
     height: 100%;
   }
 
-#unity-canvas {
-  width: 100vmin;
-  height: 100vmin;
-  max-width: 800px;
-  max-height: 800px;
-  display: block;
-  margin: 0 auto;
-  background-color: #FFBD1A;
-}
+  #unity-canvas {
+    background-color: #FFBD1A;
+  }
 
 #unity-loading-bar {
   display: flex;
@@ -112,7 +106,7 @@ canvas {
   <body>
 <body style="background-color: #ffe39e;">
   <div id="unity-container" class="unity-desktop">
-     <canvas id="unity-canvas"></canvas>
+      <canvas id="unity-canvas" width=800 height=800></canvas>
 <div id="unity-loading-bar">
   <div id="unity-loading-content"> <!-- ⭐ ラッパー追加！ -->
     <div id="unity-logo"></div>
@@ -197,6 +191,11 @@ canvas {
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
 
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+        canvas.style.width = "800px";
+        canvas.style.height = "800px";
       }
 
       loadingBar.style.display = "block";
