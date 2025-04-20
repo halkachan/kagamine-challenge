@@ -70,6 +70,26 @@
   text-align: center;
 }
 
+  @media screen and (orientation: landscape) {
+    body::before {
+      content: "スマホは縦画面でプレイしてね！";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      z-index: 9999;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    #unity-container {
+      display: none !important;
+    }
+  }
+
     </style>
   </head>
   <body>
