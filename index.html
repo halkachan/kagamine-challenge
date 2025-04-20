@@ -24,6 +24,16 @@ canvas {
         display: none !important;
       }
 
+@media screen and (max-width: 812px) {
+  canvas {
+    width: 100vw !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1; /* ← 縦横比を維持！ */
+    display: block;
+    margin: 0 auto;
+  }
+}
+
       /* カスタムローディング表示 */
       #custom-loading-wrapper {
         display: flex;
