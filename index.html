@@ -18,21 +18,22 @@
     width: 160px;
     height: 18px;
     background-color: #ffffff;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+    border-radius: 9px;
     margin: 10px auto;
     position: relative;
-    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
   }
 
   #unity-progress-bar-full {
     height: 100%;
-    width: 0%;
-    background-color: #f9b233;
-    border-radius: 8px;
-    transition: width 0.3s ease;
+    width: 0%; /* 初期値ゼロ */
+    background-color: #f9b233; /* オレンジ */
+    border-radius: 9px 0 0 9px; /* 左だけ丸める */
+    transition: width 0.2s ease;
   }
 </style>
+
 
   </head>
   <body>
