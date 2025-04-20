@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
 
-#unity-canvas {
+canvas {
   width: 800px !important;
   height: 800px !important;
   max-width: 100vw;
@@ -203,19 +203,22 @@
 
       var script = document.createElement("script");
       script.src = loaderUrl;
-      script.onload = () => {
-config.matchWebGLToCanvasSize = false;
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
-      };
+script.onload = () => {
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    config.devicePixelRatio = 1;
+  }
+  config.matchWebGLToCanvasSize = false;
+  createUnityInstance(canvas, config, (progress) => {
+    progressBarFull.style.width = 100 * progress + "%";
+  }).then((unityInstance) => {
+    loadingBar.style.display = "none";
+    fullscreenButton.onclick = () => {
+      unityInstance.SetFullscreen(1);
+    };
+  }).catch((message) => {
+    alert(message);
+  });
+};
       document.body.appendChild(script);
     </script>
 
