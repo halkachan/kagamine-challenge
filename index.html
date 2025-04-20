@@ -7,17 +7,41 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 <style>
-  #custom-loading {
-    text-align: center;
-    margin-top: 10px;
+  #unity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #unity-loading-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  #unity-logo {
     margin-bottom: 10px;
   }
 
-  #custom-loading img {
-    display: block;
-    margin: 0 auto;
+  #unity-progress-bar-empty {
+    width: 220px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+  #unity-progress-bar-full {
+    height: 100%;
+    background: #fbb03b;
+    width: 0%;
+    transition: width 0.2s ease;
   }
 </style>
+
 
   </head>
   <body>
