@@ -9,15 +9,14 @@
     <style>
 
 #unity-canvas {
-  width: 100vmin;
-  height: 100vmin;
-  max-width: 800px;
-  max-height: 800px;
+  width: 800px !important;
+  height: 800px !important;
+  max-width: 100vw;
+  max-height: 100vh;
   display: block;
   margin: 0 auto;
-  background-color: #FFBD1A;
+  image-rendering: pixelated;
 }
-
 
       /* デフォルトのUnityバーを非表示にする */
       #unity-progress-bar-empty,
@@ -108,7 +107,7 @@
   <body>
 <body style="background-color: #ffe39e;">
   <div id="unity-container" class="unity-desktop">
-<canvas id="unity-canvas"></canvas>
+      <canvas id="unity-canvas" width=800 height=800></canvas>
 <div id="unity-loading-bar">
   <div id="unity-loading-content"> <!-- ⭐ ラッパー追加！ -->
     <div id="unity-logo"></div>
